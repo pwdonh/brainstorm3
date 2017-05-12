@@ -1,8 +1,7 @@
 function events = in_events_textgrid(sFile, EventFile)
-% IN_EVENTS_ARRAY: Read events information from a .mat or text file 
+% IN_EVENTS_ARRAY: Read events information from a .TextGrid file (Praat)
 %
-% USAGE:  events = in_events_array(sFile, EventFile, format, 'times')
-%         events = in_events_array(sFile, EventFile, format, 'samples')  
+% USAGE:  events = in_events_textgrid(sFile, EventFile)
 
 % @=============================================================================
 % This function is part of the Brainstorm software:
@@ -22,7 +21,7 @@ function events = in_events_textgrid(sFile, EventFile)
 % For more information type "brainstorm license" at command prompt.
 % =============================================================================@
 %
-% Authors: Francois Tadel, Elizabeth Bock, 2012-2014
+% Authors: Peter Donhauser, 2017
 
 % ===== READ FILE =====
 TgMat = tgRead(EventFile);
