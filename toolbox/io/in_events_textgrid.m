@@ -36,12 +36,13 @@ for iEvt = 1:length(TgMat.tier)
         events(iValidEvt).times = [TgMat.tier{iEvt}.T1; TgMat.tier{iEvt}.T2];
         events(iValidEvt).samples = events(iValidEvt).times .* sFile.prop.sfreq;
         events(iValidEvt).epochs = ones(1, size(events(iValidEvt).times,2));
-        events(iValidEvt).reactTimes = TgMat.tier{iEvt}.Label';
         iValidEvt = iValidEvt + 1;
     end
 end
 
 end
+
+% Function to read textgrid files from fu.ff.cuni.cz/praat (mPraat toolbox)
 
 function textgrid = tgRead(fileName)
 % function textgrid = tgRead(fileName)
