@@ -28,15 +28,19 @@ TgMat = tgRead(EventFile);
 
 % Initialize list of events
 events = db_template('event');
-iValidEvt = 1;
+nValidEvt = 0;
 for iEvt = 1:length(TgMat.tier)
-    if strcmp(TgMat.tier{iEvt}.type,'interval')
-        events(iValidEvt).label = TgMat.tier{iEvt}.name;
-        events(iValidEvt).times = [TgMat.tier{iEvt}.T1; TgMat.tier{iEvt}.T2];
-        events(iValidEvt).samples = events(iValidEvt).times .* sFile.prop.sfreq;
-        events(iValidEvt).epochs = ones(1, size(events(iValidEvt).times,2));
-        iValidEvt = iValidEvt + 1;
+    if ~strcmp(TgMat.tier{iEvt}.type,'interval')
+        events(nValidEvt+1).label = TgMat.tier{iEvt}.name;
+        events(nValidEvt+1).times = [TgMat.tier{iEvt}.T1; TgMat.tier{iEvt}.T2];
+        events(nValidEvt+1).samples = events(iValidEvt).times .* sFile.prop.sfreq;
+        events(nValidEvt+1).epochs = ones(1, size(events(iValidEvt).times,2));
+        nValidEvt = nValidEvt + 1;
     end
+end
+
+if nValidEvt==0
+    bst_error('No valid events found. Tier type has to be ''interval''');
 end
 
 end
