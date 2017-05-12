@@ -113,6 +113,8 @@ if isempty(newEvents)
             newEvents = in_events_kdf(sFile, EventFile);
         case 'PRESENTATION'
             newEvents = in_events_presentation(sFile, EventFile);
+        case 'TEXTGRID'
+            newEvents = in_events_textgrid(sFile, EventFile);            
         case 'ARRAY-TIMES'
             newEvents = in_events_array(sFile, EventFile, 'times', EventName);
         case 'ARRAY-SAMPLES'
