@@ -1,7 +1,8 @@
 function varargout = process_ssp_eyeball( varargin )
-% PROCESS_SSP2_EOG: Reject cardiac artifact for a group of recordings file (calculates SSP from FilesA and applies them to FilesB)
+% PROCESS_SSP_EYEBALL: calculate SSP based on magnetic forward fields from
+% dipoles in the center of the eyeballs
 %
-% USAGE:  OutputFiles = process_ssp2_eog('Run', sProcess, sInputs)
+% USAGE:  OutputFiles = process_ssp_eyeball('Run', sProcess, sInputs)
 
 % @=============================================================================
 % This function is part of the Brainstorm software:
@@ -21,7 +22,7 @@ function varargout = process_ssp_eyeball( varargin )
 % For more information type "brainstorm license" at command prompt.
 % =============================================================================@
 %
-% Authors: Francois Tadel, Elizabeth Bock, 2011-2016
+% Authors: Peter Donhauser, 2017
 
 eval(macro_method);
 end
@@ -33,8 +34,8 @@ function sProcess = GetDescription() %#ok<DEFNU>
     sProcess.Comment     = 'SSP: Eyeball';
     sProcess.Category    = 'Custom';
     sProcess.SubGroup    = 'Artifacts';
-    sProcess.Index       = 2000;
-    sProcess.Description = 'http://neuroimage.usc.edu/brainstorm/Tutorials/ArtifactsSsp?highlight=%28Process2%29#Troubleshooting';
+    sProcess.Index       = 112;
+    sProcess.Description = '';
     % Definition of the input accepted by this process
     sProcess.InputTypes  = {'raw', 'data'};
     sProcess.OutputTypes = {'raw', 'raw'};
