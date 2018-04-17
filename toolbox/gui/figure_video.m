@@ -101,7 +101,7 @@ function CurrentTimeChangedCallback(hFig)   %#ok<DEFNU>
             % Get the corresponding frame of the movie
             imgFrame = readFrame(Handles.hPlayer);
             % Update the image with the read frame
-            set(Handles.hImage, 'CData', imgFrame);
+            set(Handles.hImage, 'CData', flip(imgFrame,1));
     end
 end
 
@@ -318,7 +318,7 @@ function isOk = LoadVideo(hFig, VideoFile)
                 axis image equal;
                 % Create an image object
                 Handles.hImage = image(...
-                    'CData', imgFrame, ...
+                    'CData', flip(imgFrame,1), ...
                     'Parent', hAxes);
                 % Get the first frame
                 
